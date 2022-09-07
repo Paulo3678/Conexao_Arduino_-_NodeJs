@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyy6mTtKOhi0oFxyrAe0joSfaH42knrpY&callback=initMap">
+        </script> -->
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js'></script>
+
+    <style>
+        #sample {
+            width: 300px;
+            height: 300px;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>ABACATE</h1>
+
+    <div id="sample">
+        <h2 id="texto"></h2>
+    </div>
+    <div id="map" style="width: 500px; height: 500px"></div>
+
+    <script>
+        // const apiKey = "AIzaSyAyy6mTtKOhi0oFxyrAe0joSfaH42knrpY";
+        // let map;
+
+        // function initMap() {
+        //     map = new google.maps.Map(document.getElementById("map"), {
+        //         center: { lat: -34.397, lng: 150.644 },
+        //         zoom: 8,
+        //     });
+        // }
+
+        // initMap();
+
+        let socket = io();
+
+        socket.on('data', function (data) {
+
+            document.querySelector("#texto").innerHTML = data;
+        });
+
+    </script>
+
+</body>
+
+</html>
